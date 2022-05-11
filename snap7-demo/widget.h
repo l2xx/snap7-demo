@@ -19,8 +19,15 @@ public:
 
 private slots:
     void on_pushButton_connect_clicked();
-
     void on_pushButton_disconnect_clicked();
+    void on_pushButton_read_bool_clicked();
+    void on_pushButton_read_ushort_clicked();
+    void on_pushButton_read_int_clicked();
+    void on_pushButton_read_uint_clicked();
+    void on_pushButton_read_real_clicked();
+
+private:
+    void read(int type);
 
 private:
     Ui::Widget *ui;

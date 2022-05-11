@@ -9,10 +9,12 @@ CONFIG += c++17
 SOURCES += \
     ../snap7/Wrappers/c-cpp/snap7.cpp \
     main.cpp \
+    s7.cpp \
     widget.cpp
 
 HEADERS += \
     ../snap7/Wrappers/c-cpp/snap7.h \
+    s7.h \
     widget.h
 
 FORMS += \

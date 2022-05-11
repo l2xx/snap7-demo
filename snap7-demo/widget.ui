@@ -25,7 +25,7 @@
         <item>
          <widget class="QLabel" name="label">
           <property name="text">
-           <string>S7 IP Address</string>
+           <string>S7 IP Addr</string>
           </property>
          </widget>
         </item>
@@ -86,49 +86,53 @@
         <item>
          <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>DB Pos</string>
+           <string>Addr</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_read_addr"/>
+         <widget class="QLineEdit" name="lineEdit_read_addr">
+          <property name="placeholderText">
+           <string>DB601.2 or DB601.42.0</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QPushButton" name="pushButton_read_bit">
+         <widget class="QPushButton" name="pushButton_read_bool">
           <property name="text">
-           <string>Bit</string>
+           <string>Bool(1 bit)</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="read_byte">
+         <widget class="QPushButton" name="pushButton_read_ushort">
           <property name="text">
-           <string>Byte</string>
+           <string>UInt16</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_read_int">
           <property name="text">
-           <string>Int</string>
+           <string>Int32</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_read_uint">
           <property name="text">
-           <string>UInt</string>
+           <string>UInt32</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_read_real">
           <property name="text">
-           <string>Real</string>
+           <string>Real(32bit)</string>
           </property>
          </widget>
         </item>
@@ -148,7 +152,7 @@
         <item>
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>DB Pos</string>
+           <string>Addr</string>
           </property>
          </widget>
         </item>
