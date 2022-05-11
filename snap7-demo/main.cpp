@@ -6,13 +6,16 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
     if (g_textedit != nullptr) {
         switch (type) {
         case QtDebugMsg:
-            g_textedit->append("<font color='gray'>" +msg+"</font>");
+            g_textedit->append("[DEBUG]<font color='gray'>" +msg+"</font>");
+            break;
+        case QtInfoMsg:
+            g_textedit->append("[INFO]<font color='gray'>" +msg+"</font>");
             break;
         case QtWarningMsg:
-            g_textedit->append("<font color='red'>" +msg+"</font>");
+            g_textedit->append("[WARN]<font color='red'>" +msg+"</font>");
             break;
         case QtCriticalMsg:
-            g_textedit->append("<font color='red'>" +msg+"</font>");
+            g_textedit->append("[ERROR]<font color='red'>" +msg+"</font>");
             break;
         case QtFatalMsg:
             abort();
