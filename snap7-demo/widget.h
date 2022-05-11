@@ -25,10 +25,15 @@ private slots:
     void on_pushButton_read_int_clicked();
     void on_pushButton_read_uint_clicked();
     void on_pushButton_read_real_clicked();
+    void on_pushButton_write_bool_clicked();
+    void on_pushButton_write_uint16_clicked();
+    void on_pushButton_write_int32_clicked();
+    void on_pushButton_write_uint32_clicked();
+    void on_pushButton_write_real_clicked();
 
 private:
     void read(int type);
-
+    void write(int type);
 private:
     Ui::Widget *ui;
     TS7Client *m_s7 = nullptr;

@@ -132,7 +132,7 @@
         <item>
          <widget class="QPushButton" name="pushButton_read_real">
           <property name="text">
-           <string>Real(32bit)</string>
+           <string>Real(32 bit)</string>
           </property>
          </widget>
         </item>
@@ -178,37 +178,37 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
-         <widget class="QPushButton" name="pushButton_write_bit">
+         <widget class="QPushButton" name="pushButton_write_bool">
           <property name="text">
-           <string>Bit</string>
+           <string>Bool(1 bit)</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_write_byte">
+         <widget class="QPushButton" name="pushButton_write_uint16">
           <property name="text">
-           <string>Byte</string>
+           <string>UInt16</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_write_int">
+         <widget class="QPushButton" name="pushButton_write_int32">
           <property name="text">
-           <string>Int</string>
+           <string>Int32</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_write_uint">
+         <widget class="QPushButton" name="pushButton_write_uint32">
           <property name="text">
-           <string>UInt</string>
+           <string>UInt32</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_write_real">
           <property name="text">
-           <string>Real</string>
+           <string>Real(32 bit)</string>
           </property>
          </widget>
         </item>

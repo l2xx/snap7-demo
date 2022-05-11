@@ -100,7 +100,11 @@ void Widget::read(int type)
         bit = tmp.at(2).toInt();
     }
     byte buffer[64];
-    m_s7->DBRead(db_num, offset, S7_GetDataTypeSize(type), buffer);
+    int r = m_s7->DBRead(db_num, offset, S7_GetDataTypeSize(type), buffer);
+    if (r != 0) {
+        qWarning() << "Failed to read. Error code: " << r;
+        return;
+    }
     if (type == S7_TYPE_BOOL) {
         qDebug() << "Read bool : " << S7_GetBitAt(buffer, 0, bit);
     } else if (type == S7_TYPE_UINT) {
@@ -112,4 +116,67 @@ void Widget::read(int type)
     } else if (type == S7_TYPE_REAL) {
         qDebug() << "Read real : " << S7_GetRealAt(buffer, 0);
     }
+}
+
+void Widget::write(int type)
+{
+    if (!m_s7->Connected()) {
+        qWarning() << "Not connected yet. Plz connect first!";
+        return;
+    }
+    auto addr = ui->lineEdit_read_addr->text();
+    auto tmp = addr.split('.', Qt::SkipEmptyParts);
+    int db_num = tmp.first().replace("DB", "").toInt();
+    int offset = 0;
+    int bit = 0;
+    if (tmp.size() >= 2) {
+        offset = tmp.at(1).toInt();
+    }
+    if (tmp.size() >= 3) {
+        bit = tmp.at(2).toInt();
+    }
+    byte buffer[64];
+    auto v = ui->lineEdit_write_value->text();
+    if (type == S7_TYPE_BOOL) {
+        S7_SetBitAt(buffer, 0, bit, v.toInt() != 0);
+    } else if (type == S7_TYPE_UINT) {
+        S7_SetUIntAt(buffer, 0, v.toUShort());
+    } else if (type == S7_TYPE_DINT) {
+        S7_SetDIntAt(buffer, 0, v.toInt());
+    } else if (type == S7_TYPE_UDINT) {
+        S7_SetUDIntAt(buffer, 0, v.toUInt());
+    } else if (type == S7_TYPE_REAL) {
+        S7_SetRealAt(buffer, 0, v.toFloat());
+    }
+    int r = m_s7->DBWrite(db_num, offset, S7_GetDataTypeSize(type), buffer);
+    if (r == 0) {
+        qDebug() << "writed successfully.";
+    } else {
+        qWarning() << "Failed to wirte. Error code: " << r;
+    }
+}
+
+void Widget::on_pushButton_write_bool_clicked()
+{
+    write(S7_TYPE_BOOL);
+}
+
+void Widget::on_pushButton_write_uint16_clicked()
+{
+    write(S7_TYPE_UINT);
+}
+
+void Widget::on_pushButton_write_int32_clicked()
+{
+    write(S7_TYPE_DINT);
+}
+
+void Widget::on_pushButton_write_uint32_clicked()
+{
+    write(S7_TYPE_UDINT);
+}
+
+void Widget::on_pushButton_write_real_clicked()
+{
+    write(S7_TYPE_REAL);
 }
