@@ -19,5 +19,6 @@ FORMS += \
     widget.ui
 
 LIBS += -L$$PWD/../snap7/Windows/Win32/ -lsnap7
+INCLUDEPATH += $$PWD/../snap7/Wrappers/c-cpp/
 
 DESTDIR = $$PWD/../dist/

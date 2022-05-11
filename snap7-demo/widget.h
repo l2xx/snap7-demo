@@ -2,6 +2,8 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QTextEdit>
+#include "snap7.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -15,7 +17,15 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
+private slots:
+    void on_pushButton_connect_clicked();
+
+    void on_pushButton_disconnect_clicked();
+
 private:
     Ui::Widget *ui;
+    TS7Client *m_s7 = nullptr;
 };
+
+extern QTextEdit *g_textedit;
 #endif // WIDGET_H
