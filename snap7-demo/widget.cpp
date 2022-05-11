@@ -100,7 +100,7 @@ void Widget::read(int type)
         bit = tmp.at(2).toInt();
     }
     byte buffer[64];
-    int r = m_s7->DBRead(db_num, offset, S7_GetDataTypeSize(type), buffer);
+    int r = m_s7->DBRead(db_num, offset, 64, buffer);
     if (r != 0) {
         qWarning() << "Failed to read. Error code: " << r;
         return;

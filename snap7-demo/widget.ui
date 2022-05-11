@@ -157,7 +157,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_write_addr"/>
+         <widget class="QLineEdit" name="lineEdit_write_addr">
+          <property name="placeholderText">
+           <string>DB601.2 or DB601.42.0</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
