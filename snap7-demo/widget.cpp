@@ -124,7 +124,7 @@ void Widget::write(int type)
         qWarning() << "Not connected yet. Plz connect first!";
         return;
     }
-    auto addr = ui->lineEdit_read_addr->text();
+    auto addr = ui->lineEdit_write_addr->text();
     auto tmp = addr.split('.', Qt::SkipEmptyParts);
     int db_num = tmp.first().replace("DB", "").toInt();
     int offset = 0;
