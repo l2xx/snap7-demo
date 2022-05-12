@@ -44,6 +44,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
 
 int main(int argc, char *argv[])
 {
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     qInstallMessageHandler(myMessageOutput);
     QApplication a(argc, argv);
     a.setApplicationDisplayName("snap7 demo");
