@@ -1,4 +1,4 @@
-TARGET = snap7-demo_
+TARGET = snap7-demo_internal
 
 QT       += core gui
 

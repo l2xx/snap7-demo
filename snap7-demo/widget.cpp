@@ -1,7 +1,15 @@
-#include "widget.h"
+﻿#include "widget.h"
 #include "ui_widget.h"
 #include <QDebug>
 #include "s7.h"
+
+// 在读取模拟Server时，要64才行
+// 在真实PLC时，要8才行，否则会报errCliAddressOutOfRange
+#ifdef QT_DEBUG
+#define READ_BUFFER_SIZE 64
+#else
+#define READ_BUFFER_SIZE 8
+#endif
 
 QTextEdit *g_textedit = nullptr;
 
@@ -99,8 +107,8 @@ void Widget::read(int type)
     if (tmp.size() >= 3) {
         bit = tmp.at(2).toInt();
     }
-    byte buffer[64];
-    int r = m_s7->DBRead(db_num, offset, 64, buffer);
+    byte buffer[READ_BUFFER_SIZE];
+    int r = m_s7->DBRead(db_num, offset, READ_BUFFER_SIZE, buffer);
     if (r != 0) {
         qWarning() << "Failed to read. Error code: " << r;
         return;
